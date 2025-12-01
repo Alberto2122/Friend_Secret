@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Online - Registrar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-section">
+                <div class="logo-icon">💬</div>
+                <h1>Criar Conta</h1>
+                <p>Junte-se à nossa comunidade</p>
+            </div>
+            
+            <div class="login-section">
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="regUsername">Nome de Usuário</label>
+                        <input 
+                            type="text" 
+                            id="regUsername" 
+                            name="username" 
+                            placeholder="Escolha um nome de usuário"
+                            required
+                            minlength="3"
+                            autocomplete="username"
+                        >
+                        <small class="form-hint">Mínimo de 3 caracteres</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regPassword">Senha</label>
+                        <input 
+                            type="password" 
+                            id="regPassword" 
+                            name="password" 
+                            placeholder="Crie uma senha"
+                            required
+                            minlength="4"
+                            autocomplete="new-password"
+                        >
+                        <small class="form-hint">Mínimo de 4 caracteres</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Senha</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            placeholder="Confirme sua senha"
+                            required
+                            minlength="4"
+                            autocomplete="new-password"
+                        >
+                    </div>
+                    
+                    <button type="submit" id="registerSubmitBtn" class="submit-btn">
+                        <span>Criar Conta</span>
+                    </button>
+                </form>
+                
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <button id="loginBtn" class="register-btn">
+                    Já tenho uma conta
+                </button>
+            </div>
+        </div>
+        
+        <div class="background-animation">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
+    </div>
+    
+    <script src="register.js"></script>
+</body>
+</html>
+
+

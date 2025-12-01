@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="chat-body">
+    <div class="admin-container">
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h1><span class="logo-accent">⚙️</span> Painel Administrativo</h1>
+                <div class="admin-header-actions">
+                    <button id="backToChatBtn" class="back-btn">← Voltar ao Chat</button>
+                    <button id="logoutBtn" class="logout-btn">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-main">
+            <!-- Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="stats">📊 Estatísticas</button>
+                <button class="admin-tab" data-tab="secret-friend">🎁 Amigo Secreto</button>
+            </div>
+
+            <!-- Tab Content: Estatísticas -->
+            <div class="admin-tab-content active" id="stats-tab">
+                <div class="admin-section">
+                    <h2>Usuários do Sistema</h2>
+                    <div class="stats-controls">
+                        <button id="refreshStatsBtn" class="refresh-btn">🔄 Atualizar</button>
+                    </div>
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuário</th>
+                                    <th>Status</th>
+                                    <th>Primeiro Acesso</th>
+                                    <th>Último Acesso</th>
+                                    <th>Tempo Offline</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statsTableBody">
+                                <tr>
+                                    <td colspan="5" class="loading-text">Carregando...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Amigo Secreto -->
+            <div class="admin-tab-content" id="secret-friend-tab">
+                <div class="admin-section">
+                    <h2>Gerenciar Amigo Secreto</h2>
+                    <div class="secret-friend-controls">
+                        <button id="loadSecretFriendBtn" class="action-btn">📥 Carregar Pares</button>
+                        <button id="saveSecretFriendBtn" class="action-btn primary">💾 Salvar Pares</button>
+                        <button id="shuffleSecretFriendBtn" class="action-btn primary">🎲 Sortear Amigo Secreto</button>
+                    </div>
+                    
+                    <div class="secret-friend-editor">
+                        <div class="editor-header">
+                            <h3>Pares de Amigo Secreto</h3>
+                            <button id="addPairBtn" class="add-btn">+ Adicionar Par</button>
+                        </div>
+                        <div class="pairs-list" id="pairsList">
+                            <div class="empty-state">
+                                <p>Nenhum par adicionado ainda.</p>
+                                <p>Clique em "Adicionar Par" para começar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

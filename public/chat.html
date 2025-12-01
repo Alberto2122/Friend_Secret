@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="chat-body">
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1><span class="logo-accent">●</span> Chat Online</h1>
+                    <span class="online-indicator" id="onlineIndicator">
+                        <span class="pulse"></span>
+                        Online
+                    </span>
+                </div>
+                <div class="header-right">
+                    <div class="user-info" id="userInfo">
+                        <img id="userPhoto" src="" alt="User" class="user-photo">
+                        <span id="userName"></span>
+                    </div>
+                    <button id="adminBtn" class="admin-btn" style="display: none;" title="Painel Administrativo">
+                        ⚙️ Admin
+                    </button>
+                    <button id="logoutBtn" class="logout-btn">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Chat Area -->
+        <div class="chat-main">
+            <!-- Sidebar com usuários online -->
+            <aside class="users-sidebar" id="usersSidebar">
+                <h3>👥 Usuários Online</h3>
+                <div class="users-list" id="usersList">
+                    <div class="loading-users">Carregando...</div>
+                </div>
+            </aside>
+
+            <!-- Messages Area -->
+            <div class="messages-container">
+                <div class="messages" id="messages">
+                    <div class="welcome-message">
+                        <h2>Bem-vindo ao chat! 👋</h2>
+                        <p>Comece a conversar enviando uma mensagem abaixo.</p>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator"></div>
+                
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-container">
+                        <input 
+                            type="file" 
+                            id="imageInput" 
+                            accept="image/*" 
+                            style="display: none;"
+                        >
+                        <button id="imageBtn" class="image-btn" title="Anexar imagem">
+                            📷
+                        </button>
+                        <button id="emojiBtn" class="emoji-btn" title="Emojis">
+                            😊
+                        </button>
+                        <div class="emoji-picker" id="emojiPicker">
+                            <div class="emoji-categories">
+                                <button class="emoji-category-btn active" data-category="smileys">😊</button>
+                                <button class="emoji-category-btn" data-category="gestures">👋</button>
+                                <button class="emoji-category-btn" data-category="people">👤</button>
+                                <button class="emoji-category-btn" data-category="animals">🐶</button>
+                                <button class="emoji-category-btn" data-category="food">🍕</button>
+                                <button class="emoji-category-btn" data-category="travel">✈️</button>
+                                <button class="emoji-category-btn" data-category="objects">💡</button>
+                                <button class="emoji-category-btn" data-category="symbols">❤️</button>
+                            </div>
+                            <div class="emoji-grid" id="emojiGrid"></div>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            placeholder="Digite sua mensagem..." 
+                            autocomplete="off"
+                        >
+                        <button id="sendBtn" class="send-btn" title="Enviar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
+
