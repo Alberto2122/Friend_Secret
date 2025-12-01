@@ -283,6 +283,7 @@ io.on('connection', (socket) => {
       socket.broadcast.emit('userLeft', { username: user.name, message: `${user.name} saiu`, timestamp: new Date() });
       io.emit('usersList', Array.from(connectedUsers.values()));
     }
+  
   });
 });
 
