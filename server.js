@@ -29,8 +29,17 @@ const io = socketIo(server, {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+
+// --- CORREÇÃO: Isso libera os arquivos da pasta raiz ---
+app.use(express.static(__dirname));
+// -------------------------------------------------------
+
 app.use('/uploads', express.static('uploads'));
+
+// --- GARANTIA: Força o envio do index.html ao entrar no site ---
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.use(session({
   secret: process.env.SESSION_SECRET || 'seu-secret-super-seguro-aqui',
   resave: false,
